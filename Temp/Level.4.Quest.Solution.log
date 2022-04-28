@@ -1,0 +1,27 @@
+﻿  C:\Users\Sean Orme\Google Drive\CPSC 2377\Quests\CPSC.2377.Quests.Contra\Level.4.Quest.Solution\SDL2\lib\x86\libfreetype-6.dll
+  C:\Users\Sean Orme\Google Drive\CPSC 2377\Quests\CPSC.2377.Quests.Contra\Level.4.Quest.Solution\SDL2\lib\x86\libjpeg-9.dll
+  C:\Users\Sean Orme\Google Drive\CPSC 2377\Quests\CPSC.2377.Quests.Contra\Level.4.Quest.Solution\SDL2\lib\x86\libpng16-16.dll
+  C:\Users\Sean Orme\Google Drive\CPSC 2377\Quests\CPSC.2377.Quests.Contra\Level.4.Quest.Solution\SDL2\lib\x86\libtiff-5.dll
+  C:\Users\Sean Orme\Google Drive\CPSC 2377\Quests\CPSC.2377.Quests.Contra\Level.4.Quest.Solution\SDL2\lib\x86\libwebp-4.dll
+  C:\Users\Sean Orme\Google Drive\CPSC 2377\Quests\CPSC.2377.Quests.Contra\Level.4.Quest.Solution\SDL2\lib\x86\SDL2.dll
+  C:\Users\Sean Orme\Google Drive\CPSC 2377\Quests\CPSC.2377.Quests.Contra\Level.4.Quest.Solution\SDL2\lib\x86\SDL2_image.dll
+  C:\Users\Sean Orme\Google Drive\CPSC 2377\Quests\CPSC.2377.Quests.Contra\Level.4.Quest.Solution\SDL2\lib\x86\SDL2_ttf.dll
+  C:\Users\Sean Orme\Google Drive\CPSC 2377\Quests\CPSC.2377.Quests.Contra\Level.4.Quest.Solution\SDL2\lib\x86\zlib1.dll
+          9 file(s) copied.
+  Enemy.cpp
+  GUI.cpp
+  Player.cpp
+  engine.cpp
+  level.4.quest.cpp
+  Generating Code...
+  Level.4.Quest.Solution.vcxproj -> C:\Users\Sean Orme\Google Drive\CPSC 2377\Quests\CPSC.2377.Quests.Contra\Level.4.Quest.Solution\Game\Level.4.Quest.Solution.exe
+  C:\Users\Sean Orme\Google Drive\CPSC 2377\Quests\CPSC.2377.Quests.Contra\Level.4.Quest.Solution\libfreetype-6.dll
+  C:\Users\Sean Orme\Google Drive\CPSC 2377\Quests\CPSC.2377.Quests.Contra\Level.4.Quest.Solution\libjpeg-9.dll
+  C:\Users\Sean Orme\Google Drive\CPSC 2377\Quests\CPSC.2377.Quests.Contra\Level.4.Quest.Solution\libpng16-16.dll
+  C:\Users\Sean Orme\Google Drive\CPSC 2377\Quests\CPSC.2377.Quests.Contra\Level.4.Quest.Solution\libtiff-5.dll
+  C:\Users\Sean Orme\Google Drive\CPSC 2377\Quests\CPSC.2377.Quests.Contra\Level.4.Quest.Solution\libwebp-4.dll
+  C:\Users\Sean Orme\Google Drive\CPSC 2377\Quests\CPSC.2377.Quests.Contra\Level.4.Quest.Solution\SDL2.dll
+  C:\Users\Sean Orme\Google Drive\CPSC 2377\Quests\CPSC.2377.Quests.Contra\Level.4.Quest.Solution\SDL2_image.dll
+  C:\Users\Sean Orme\Google Drive\CPSC 2377\Quests\CPSC.2377.Quests.Contra\Level.4.Quest.Solution\SDL2_ttf.dll
+  C:\Users\Sean Orme\Google Drive\CPSC 2377\Quests\CPSC.2377.Quests.Contra\Level.4.Quest.Solution\zlib1.dll
+          9 file(s) moved.

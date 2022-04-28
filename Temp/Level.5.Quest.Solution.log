@@ -1,0 +1,36 @@
+﻿C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\MSBuild\Microsoft\VC\v160\Microsoft.CppBuild.targets(452,5): warning MSB8028: The intermediate directory (D:\Google Drive\CPSC 2377\Quests\CPSC.2377.Quests.Contra\Level.5.Quest.Solution\Temp\) contains files shared from another project (Level.4.Quest.Solution.vcxproj).  This can lead to incorrect clean and rebuild behavior.
+  D:\Google Drive\CPSC 2377\Quests\CPSC.2377.Quests.Contra\Level.5.Quest.Solution\SDL2\lib\x86\libfreetype-6.dll
+  D:\Google Drive\CPSC 2377\Quests\CPSC.2377.Quests.Contra\Level.5.Quest.Solution\SDL2\lib\x86\libjpeg-9.dll
+  D:\Google Drive\CPSC 2377\Quests\CPSC.2377.Quests.Contra\Level.5.Quest.Solution\SDL2\lib\x86\libpng16-16.dll
+  D:\Google Drive\CPSC 2377\Quests\CPSC.2377.Quests.Contra\Level.5.Quest.Solution\SDL2\lib\x86\libtiff-5.dll
+  D:\Google Drive\CPSC 2377\Quests\CPSC.2377.Quests.Contra\Level.5.Quest.Solution\SDL2\lib\x86\libwebp-4.dll
+  D:\Google Drive\CPSC 2377\Quests\CPSC.2377.Quests.Contra\Level.5.Quest.Solution\SDL2\lib\x86\SDL2.dll
+  D:\Google Drive\CPSC 2377\Quests\CPSC.2377.Quests.Contra\Level.5.Quest.Solution\SDL2\lib\x86\SDL2_image.dll
+  D:\Google Drive\CPSC 2377\Quests\CPSC.2377.Quests.Contra\Level.5.Quest.Solution\SDL2\lib\x86\SDL2_ttf.dll
+  D:\Google Drive\CPSC 2377\Quests\CPSC.2377.Quests.Contra\Level.5.Quest.Solution\SDL2\lib\x86\zlib1.dll
+          9 file(s) copied.
+  AnimatedObject.cpp
+D:\Google Drive\CPSC 2377\Quests\CPSC.2377.Quests.Contra\Level.5.Quest.Solution\Source\AnimatedObject.cpp(7,41): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
+D:\Google Drive\CPSC 2377\Quests\CPSC.2377.Quests.Contra\Level.5.Quest.Solution\Source\AnimatedObject.cpp(7,47): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
+D:\Google Drive\CPSC 2377\Quests\CPSC.2377.Quests.Contra\Level.5.Quest.Solution\Source\AnimatedObject.cpp(76,35): warning C4244: '+=': conversion from 'float' to 'int', possible loss of data
+  Block.cpp
+  Enemy.cpp
+  GUI.cpp
+  Object.cpp
+  Player.cpp
+  Texture.cpp
+  engine.cpp
+  level.5.quest.cpp
+  Generating Code...
+D:\Google Drive\CPSC 2377\Quests\CPSC.2377.Quests.Contra\Level.5.Quest.Solution\Source\AnimatedObject.cpp(77,34): warning C4244: '+=': conversion from 'float' to 'int', possible loss of data
+  Level.5.Quest.Solution.vcxproj -> D:\Google Drive\CPSC 2377\Quests\CPSC.2377.Quests.Contra\Level.5.Quest.Solution\Game\Level.5.Quest.Solution.exe
+  D:\Google Drive\CPSC 2377\Quests\CPSC.2377.Quests.Contra\Level.5.Quest.Solution\libfreetype-6.dll
+  D:\Google Drive\CPSC 2377\Quests\CPSC.2377.Quests.Contra\Level.5.Quest.Solution\libjpeg-9.dll
+  D:\Google Drive\CPSC 2377\Quests\CPSC.2377.Quests.Contra\Level.5.Quest.Solution\libpng16-16.dll
+  D:\Google Drive\CPSC 2377\Quests\CPSC.2377.Quests.Contra\Level.5.Quest.Solution\libtiff-5.dll
+  D:\Google Drive\CPSC 2377\Quests\CPSC.2377.Quests.Contra\Level.5.Quest.Solution\libwebp-4.dll
+  D:\Google Drive\CPSC 2377\Quests\CPSC.2377.Quests.Contra\Level.5.Quest.Solution\SDL2.dll
+  D:\Google Drive\CPSC 2377\Quests\CPSC.2377.Quests.Contra\Level.5.Quest.Solution\SDL2_image.dll
+  D:\Google Drive\CPSC 2377\Quests\CPSC.2377.Quests.Contra\Level.5.Quest.Solution\SDL2_ttf.dll
+  D:\Google Drive\CPSC 2377\Quests\CPSC.2377.Quests.Contra\Level.5.Quest.Solution\zlib1.dll
+          9 file(s) moved.

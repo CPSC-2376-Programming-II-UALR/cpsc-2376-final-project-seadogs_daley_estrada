@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29403.142
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Level.6.Quest.Solution", "Level.6.Quest.Solution.vcxproj", "{8A11E344-326E-4250-94D0-4B8EA1E5DC30}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Level.6.Quest.Assignment", "..\Level.6.Quest.Assignment\Level.6.Quest.Assignment.vcxproj", "{2E472190-9C3B-45F3-888D-2A13465F724C}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|x86 = Debug|x86
+		Release|x86 = Release|x86
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{8A11E344-326E-4250-94D0-4B8EA1E5DC30}.Debug|x86.ActiveCfg = Debug|Win32
+		{8A11E344-326E-4250-94D0-4B8EA1E5DC30}.Debug|x86.Build.0 = Debug|Win32
+		{8A11E344-326E-4250-94D0-4B8EA1E5DC30}.Release|x86.ActiveCfg = Release|Win32
+		{8A11E344-326E-4250-94D0-4B8EA1E5DC30}.Release|x86.Build.0 = Release|Win32
+		{2E472190-9C3B-45F3-888D-2A13465F724C}.Debug|x86.ActiveCfg = Debug|Win32
+		{2E472190-9C3B-45F3-888D-2A13465F724C}.Debug|x86.Build.0 = Debug|Win32
+		{2E472190-9C3B-45F3-888D-2A13465F724C}.Release|x86.ActiveCfg = Release|Win32
+		{2E472190-9C3B-45F3-888D-2A13465F724C}.Release|x86.Build.0 = Release|Win32
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {94F1E854-1788-466D-8F9B-ABFEF64CAB0F}
+	EndGlobalSection
+EndGlobal
