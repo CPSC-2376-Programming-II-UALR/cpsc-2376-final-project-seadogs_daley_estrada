@@ -5,6 +5,7 @@
 #include "GUI.h"
 #include "Block.h"
 
+
 using namespace std;
 Player::Player(std::string animationFile, Vector2D columnRow, const std::unique_ptr<GUI>& gui)
 	: AnimatedObject(animationFile, position, Object::Type::player,gui)

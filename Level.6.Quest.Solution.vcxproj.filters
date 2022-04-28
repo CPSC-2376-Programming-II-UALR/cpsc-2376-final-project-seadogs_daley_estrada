@@ -1,0 +1,81 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClCompile Include="Source\AnimatedObject.cpp">
+      <Filter>source</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Block.cpp">
+      <Filter>source</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Enemy.cpp">
+      <Filter>source</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\engine.cpp">
+      <Filter>source</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\GUI.cpp">
+      <Filter>source</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\level.6.quest.cpp">
+      <Filter>source</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Object.cpp">
+      <Filter>source</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Player.cpp">
+      <Filter>source</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Texture.cpp">
+      <Filter>source</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Timer.cpp">
+      <Filter>source</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Source\AnimatedObject.h">
+      <Filter>headers</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Block.h">
+      <Filter>headers</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Enemy.h">
+      <Filter>headers</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\engine.h">
+      <Filter>headers</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\GUI.h">
+      <Filter>headers</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Object.h">
+      <Filter>headers</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Player.h">
+      <Filter>headers</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Texture.h">
+      <Filter>headers</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Timer.h">
+      <Filter>headers</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="Assets\images\block.png" />
+    <Image Include="Assets\images\player_sheet.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="Assets\data\animation.txt" />
+    <Text Include="Assets\data\background.txt" />
+    <Text Include="Assets\data\EnemyAnimations.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="source">
+      <UniqueIdentifier>{10f26ed8-abd4-49db-99bc-4822d1713669}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="headers">
+      <UniqueIdentifier>{0bca360c-d862-4def-b69f-eb32b3a96a40}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>
