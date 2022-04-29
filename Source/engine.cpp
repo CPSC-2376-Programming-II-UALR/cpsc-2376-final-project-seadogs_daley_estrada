@@ -7,6 +7,7 @@
 #include <memory>
 
 
+
 #include "GUI.h"
 #include "Timer.h"
 
@@ -15,14 +16,15 @@
 #include "Block.h"
 #include "Enemy.h"
 #include "Player.h"
-
+#include "HealthBar.h"
 using namespace std;
 
 Engine::Engine(
 	std::unique_ptr<GUI>& gui,
 	const std::string& levelFile,
 	const std::string& playerAnimationFile,
-	const std::string& EnemyAnimationFile):gui(gui)
+	const std::string& EnemyAnimationFile,
+	const std::string& HealthBarAnimationFile):gui(gui)
 {
 	
 	ifstream fin;
@@ -56,6 +58,11 @@ Engine::Engine(
 				player1->setPosition(tempPosition);
 				break;
 
+			}
+			case Object::Type::hpbar: 
+			{
+				//objects.push_back(std::make_unique<HealthBar>(HealthBarAnimationFile, Vector2D{0,0}, gui));
+				break;
 			}
 			}
 

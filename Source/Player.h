@@ -17,7 +17,9 @@ public:
 	void update(Object::Command command,  std::vector<std::unique_ptr<Object>>& objects) override;
 	Object* copyMe() override;
 	bool getIsDead();
+	int getHealth();
 private:
+	int health{ 3 };
 		//Helper functions
 	void moveDown();
 	void moveLeft();

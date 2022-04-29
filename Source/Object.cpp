@@ -2,6 +2,7 @@
 #include "Block.h"
 #include "Player.h"
 #include "GUI.h"
+#include "HealthBar.h"
 
 Object::Object(Vector2D position, Type name, const std::unique_ptr<GUI>& gui):position(position), name(name), gui(gui)
 {

@@ -22,6 +22,7 @@
 #include"Player.h"
 #include "Block.h"
 #include "Enemy.h"
+#include "HealthBar.h"
 
 using namespace std;
 
@@ -33,7 +34,8 @@ int main(int argc, char* argv[]) {
 		gui,
 		"./Assets/data/background.txt",
 		"./Assets/data/animation.txt",
-		"./Assets/data/EnemyAnimations.txt") };
+		"./Assets/data/EnemyAnimations.txt",
+		 "./Assets/data/HealthBar.txt")};
 		
 	//Construct Timer
 	Timer fps;

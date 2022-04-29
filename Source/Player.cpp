@@ -68,7 +68,10 @@ void Player::update(Object::Command command,  std::vector<std::unique_ptr<Object
 			}) };
 	if (objectIter != objects.end())
 	{
-		isDead = true;
+		health -= 1;
+		if (health == 0) {
+			isDead = true;
+		}
 	}
 	if (position.y > GUI::screenDimensions.y)
 	{
@@ -85,6 +88,11 @@ Object* Player::copyMe()
 bool Player::getIsDead()
 {
 	return isDead;
+}
+
+int Player::getHealth()
+{
+	return health;
 }
 
 

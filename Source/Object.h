@@ -20,22 +20,23 @@ class Object
 {
 public:
 	enum class Command { up, down, left, right, attack, jump, NA };
-	enum class Type 
-	{ 
-		none, 		
-		bridge_center, 
-		bridge_end, 
-		bridge_start, 
-		center_block, 
-		top_block, 
-		tree_background, 
-		water, 
-		water_shore, 
-		water_top, 
-		water_wall, 
+	enum class Type
+	{
+		none,
+		bridge_center,
+		bridge_end,
+		bridge_start,
+		center_block,
+		top_block,
+		tree_background,
+		water,
+		water_shore,
+		water_top,
+		water_wall,
 		water_wall_corner,
-		player=100,
-		enemy=200
+		player = 100,
+		enemy = 200,
+		hpbar = 300
 	};
 
 	Object() = delete;
@@ -47,7 +48,7 @@ public:
 	Vector2D getDimensions() const;
 	Type getName() const;
 
-	virtual void update(Object::Command command, std::vector<std::unique_ptr<Object>> & objects) = 0;
+	virtual void update(Object::Command command, std::vector<std::unique_ptr<Object>>& objects) = 0;
 	virtual Object* copyMe() = 0;
 
 protected:

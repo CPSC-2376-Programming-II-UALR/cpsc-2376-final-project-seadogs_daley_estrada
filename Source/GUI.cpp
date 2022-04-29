@@ -9,6 +9,7 @@
 #include "Enemy.h"
 #include "Block.h"
 #include "engine.h"
+#include "HealthBar.h"
 
 using namespace std;
 
@@ -113,6 +114,13 @@ void GUI::initGUI(){
 }
 
 void GUI::loadMedia(){
+
+	objectTextures[Object::Type::hpbar] = new Texture();
+	objectTextures[Object::Type::hpbar]->load(renderer, "./Assets/Images/HealthSpriteSheet.png");
+
+	hpClips.push_back(new SDL_Rect{ 79, 16, 30, 37 });//Still Left
+	hpClips.push_back(new SDL_Rect{ 43, 7, 14, 45 });//Still Right
+
 
 	//Open Enemy Sprite Sheet Forward
 	objectTextures[Object::Type::enemy] = new Texture();
@@ -257,6 +265,9 @@ void GUI::displayGameState(Engine* engine){
 			break;
 		case Object::Type::player:
 			objectTextures[Object::Type::player]->render(renderer, object->getPosition(), playerClips[((Player*)object.get())->getCurrentSprite()]);
+			break;
+		case Object::Type::hpbar:
+			objectTextures[Object::Type::hpbar]->render(renderer, object->getPosition(), hpClips[((HealthBar*)object.get())->getCurrentSprite()]);
 			break;
 		default:
 			objectTextures[object->getName()]->render(renderer, object->getPosition(), nullptr);
