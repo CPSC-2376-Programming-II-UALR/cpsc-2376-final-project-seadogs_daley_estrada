@@ -14,10 +14,9 @@ public:
 
 
 	void update(Object::Command command,  std::vector<std::unique_ptr<Object>>& objects) override;
-	Object* copyMe() override;
+	std::unique_ptr<Object> copyMe() override;
 
 private:
-	int timesJumped{ 0 };
 
 };
 #endif // !ENEMY_H

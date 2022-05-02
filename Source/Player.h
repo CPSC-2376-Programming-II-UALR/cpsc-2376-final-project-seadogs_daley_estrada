@@ -8,28 +8,26 @@
 
 class GUI;
 class Block;
-class Player: public AnimatedObject
+class Player : public AnimatedObject
 {
 public:
-	Player() = delete;
-	Player(std::string animationFile, Vector2D columnRow, const std::unique_ptr<GUI>& gui);
+    Player() = delete;
+    Player(std::string animationFile, Vector2D columnRow, const std::unique_ptr<GUI>& gui);
 
 
-	void update(Object::Command command,  std::vector<std::unique_ptr<Object>>& objects) override;
-	Object* copyMe() override;
-	bool getIsDead();
-	int getHealth();
+    void update(Object::Command command, std::vector<std::unique_ptr<Object>>& objects) override;
+    std::unique_ptr<Object> copyMe() override;
+    bool getIsDead();
 private:
-	int health{ 3 };
-		//Helper functions
-	void moveDown();
-	void moveLeft();
-	void moveRight();
-	void moveUp();
-	void moveJump();
-	void noAction();
-	bool isDead{ false };
+    //Helper functions
+    void moveDown();
+    void moveLeft();
+    void moveRight();
+    void moveUp();
+    void moveJump();
+    void noAction();
+    bool isDead{ false };
 
-	
+
 };
 #endif // !PLAYER_H
