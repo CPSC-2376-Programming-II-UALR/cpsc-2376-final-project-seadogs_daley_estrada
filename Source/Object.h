@@ -36,7 +36,8 @@ public:
 		water_wall, 
 		water_wall_corner,
 		player=100,
-		enemy=200
+		enemy=200,
+		hpbar = 300
 	};
 
 	Object() = delete;
@@ -49,7 +50,8 @@ public:
 	Type getName() const;
 
 	virtual void update(Object::Command command, std::vector<std::unique_ptr<Object>> & objects) = 0;
-	virtual std::unique_ptr<Object> copyMe() = 0;
+	virtual Object* copyMe() = 0;
+
 
 protected:
 	const Type name{ Type::none };

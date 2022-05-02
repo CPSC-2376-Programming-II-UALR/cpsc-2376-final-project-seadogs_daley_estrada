@@ -58,6 +58,8 @@ private:
 	std::map<Object::Type, Texture*> objectTextures;
 	std::vector<SDL_Rect*> playerClips;
 	std::vector<SDL_Rect*> enemyClips;
+	std::vector<SDL_Rect*> hpClips;
+
 	
 	//The font used on the screen.
 	TTF_Font* guiFont{ nullptr };

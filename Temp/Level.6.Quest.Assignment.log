@@ -1,34 +1,23 @@
-﻿  C:\Users\Ryan Daley\Documents\GitHub\cpsc-2376-group-assignment-2-contra-seadogs_daley_estrada\SDL2\lib\x86\libfreetype-6.dll
-  C:\Users\Ryan Daley\Documents\GitHub\cpsc-2376-group-assignment-2-contra-seadogs_daley_estrada\SDL2\lib\x86\libjpeg-9.dll
-  C:\Users\Ryan Daley\Documents\GitHub\cpsc-2376-group-assignment-2-contra-seadogs_daley_estrada\SDL2\lib\x86\libpng16-16.dll
-  C:\Users\Ryan Daley\Documents\GitHub\cpsc-2376-group-assignment-2-contra-seadogs_daley_estrada\SDL2\lib\x86\libtiff-5.dll
-  C:\Users\Ryan Daley\Documents\GitHub\cpsc-2376-group-assignment-2-contra-seadogs_daley_estrada\SDL2\lib\x86\libwebp-4.dll
-  C:\Users\Ryan Daley\Documents\GitHub\cpsc-2376-group-assignment-2-contra-seadogs_daley_estrada\SDL2\lib\x86\SDL2.dll
-  C:\Users\Ryan Daley\Documents\GitHub\cpsc-2376-group-assignment-2-contra-seadogs_daley_estrada\SDL2\lib\x86\SDL2_image.dll
-  C:\Users\Ryan Daley\Documents\GitHub\cpsc-2376-group-assignment-2-contra-seadogs_daley_estrada\SDL2\lib\x86\SDL2_ttf.dll
-  C:\Users\Ryan Daley\Documents\GitHub\cpsc-2376-group-assignment-2-contra-seadogs_daley_estrada\SDL2\lib\x86\zlib1.dll
+﻿C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\MSBuild\Microsoft\VC\v160\Microsoft.CppBuild.targets(513,5): warning MSB8028: The intermediate directory (C:\Users\estra\AppData\Local\GitHubDesktop\app-2.9.6\cpsc-2376-final-project-seadogs_daley_estrada\Temp\) contains files shared from another project (Level.4.Quest.Solution.vcxproj, Level.5.Quest.Solution.vcxproj, Level.6.Quest.Solution.vcxproj).  This can lead to incorrect clean and rebuild behavior.
+  C:\Users\estra\AppData\Local\GitHubDesktop\app-2.9.6\cpsc-2376-final-project-seadogs_daley_estrada\SDL2\lib\x86\libfreetype-6.dll
+  C:\Users\estra\AppData\Local\GitHubDesktop\app-2.9.6\cpsc-2376-final-project-seadogs_daley_estrada\SDL2\lib\x86\libjpeg-9.dll
+  C:\Users\estra\AppData\Local\GitHubDesktop\app-2.9.6\cpsc-2376-final-project-seadogs_daley_estrada\SDL2\lib\x86\libpng16-16.dll
+  C:\Users\estra\AppData\Local\GitHubDesktop\app-2.9.6\cpsc-2376-final-project-seadogs_daley_estrada\SDL2\lib\x86\libtiff-5.dll
+  C:\Users\estra\AppData\Local\GitHubDesktop\app-2.9.6\cpsc-2376-final-project-seadogs_daley_estrada\SDL2\lib\x86\libwebp-4.dll
+  C:\Users\estra\AppData\Local\GitHubDesktop\app-2.9.6\cpsc-2376-final-project-seadogs_daley_estrada\SDL2\lib\x86\SDL2.dll
+  C:\Users\estra\AppData\Local\GitHubDesktop\app-2.9.6\cpsc-2376-final-project-seadogs_daley_estrada\SDL2\lib\x86\SDL2_image.dll
+  C:\Users\estra\AppData\Local\GitHubDesktop\app-2.9.6\cpsc-2376-final-project-seadogs_daley_estrada\SDL2\lib\x86\SDL2_ttf.dll
+  C:\Users\estra\AppData\Local\GitHubDesktop\app-2.9.6\cpsc-2376-final-project-seadogs_daley_estrada\SDL2\lib\x86\zlib1.dll
           9 file(s) copied.
-  AnimatedObject.cpp
-C:\Users\Ryan Daley\Documents\GitHub\cpsc-2376-group-assignment-2-contra-seadogs_daley_estrada\Source\AnimatedObject.cpp(7,41): warning C4838: conversion from 'float' to 'int' requires a narrowing conversion
-C:\Users\Ryan Daley\Documents\GitHub\cpsc-2376-group-assignment-2-contra-seadogs_daley_estrada\Source\AnimatedObject.cpp(7,41): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
-C:\Users\Ryan Daley\Documents\GitHub\cpsc-2376-group-assignment-2-contra-seadogs_daley_estrada\Source\AnimatedObject.cpp(7,47): warning C4838: conversion from 'float' to 'int' requires a narrowing conversion
-C:\Users\Ryan Daley\Documents\GitHub\cpsc-2376-group-assignment-2-contra-seadogs_daley_estrada\Source\AnimatedObject.cpp(7,47): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
-C:\Users\Ryan Daley\Documents\GitHub\cpsc-2376-group-assignment-2-contra-seadogs_daley_estrada\Source\AnimatedObject.cpp(75,23): warning C4244: '+=': conversion from 'float' to 'int', possible loss of data
-C:\Users\Ryan Daley\Documents\GitHub\cpsc-2376-group-assignment-2-contra-seadogs_daley_estrada\Source\AnimatedObject.cpp(76,23): warning C4244: '+=': conversion from 'float' to 'int', possible loss of data
-  Enemy.cpp
   GUI.cpp
-  Group.Assignment.2.cpp
-  Object.cpp
-  Player.cpp
-  Generating Code...
-  Level.6.Quest.Assignment.vcxproj -> C:\Users\Ryan Daley\Documents\GitHub\cpsc-2376-group-assignment-2-contra-seadogs_daley_estrada\Game\Level.6.Quest.Assignment.exe
-  C:\Users\Ryan Daley\Documents\GitHub\cpsc-2376-group-assignment-2-contra-seadogs_daley_estrada\libfreetype-6.dll
-  C:\Users\Ryan Daley\Documents\GitHub\cpsc-2376-group-assignment-2-contra-seadogs_daley_estrada\libjpeg-9.dll
-  C:\Users\Ryan Daley\Documents\GitHub\cpsc-2376-group-assignment-2-contra-seadogs_daley_estrada\libpng16-16.dll
-  C:\Users\Ryan Daley\Documents\GitHub\cpsc-2376-group-assignment-2-contra-seadogs_daley_estrada\libtiff-5.dll
-  C:\Users\Ryan Daley\Documents\GitHub\cpsc-2376-group-assignment-2-contra-seadogs_daley_estrada\libwebp-4.dll
-  C:\Users\Ryan Daley\Documents\GitHub\cpsc-2376-group-assignment-2-contra-seadogs_daley_estrada\SDL2.dll
-  C:\Users\Ryan Daley\Documents\GitHub\cpsc-2376-group-assignment-2-contra-seadogs_daley_estrada\SDL2_image.dll
-  C:\Users\Ryan Daley\Documents\GitHub\cpsc-2376-group-assignment-2-contra-seadogs_daley_estrada\SDL2_ttf.dll
-  C:\Users\Ryan Daley\Documents\GitHub\cpsc-2376-group-assignment-2-contra-seadogs_daley_estrada\zlib1.dll
+  Level.6.Quest.Assignment.vcxproj -> C:\Users\estra\AppData\Local\GitHubDesktop\app-2.9.6\cpsc-2376-final-project-seadogs_daley_estrada\Game\Level.6.Quest.Assignment.exe
+  C:\Users\estra\AppData\Local\GitHubDesktop\app-2.9.6\cpsc-2376-final-project-seadogs_daley_estrada\libfreetype-6.dll
+  C:\Users\estra\AppData\Local\GitHubDesktop\app-2.9.6\cpsc-2376-final-project-seadogs_daley_estrada\libjpeg-9.dll
+  C:\Users\estra\AppData\Local\GitHubDesktop\app-2.9.6\cpsc-2376-final-project-seadogs_daley_estrada\libpng16-16.dll
+  C:\Users\estra\AppData\Local\GitHubDesktop\app-2.9.6\cpsc-2376-final-project-seadogs_daley_estrada\libtiff-5.dll
+  C:\Users\estra\AppData\Local\GitHubDesktop\app-2.9.6\cpsc-2376-final-project-seadogs_daley_estrada\libwebp-4.dll
+  C:\Users\estra\AppData\Local\GitHubDesktop\app-2.9.6\cpsc-2376-final-project-seadogs_daley_estrada\SDL2.dll
+  C:\Users\estra\AppData\Local\GitHubDesktop\app-2.9.6\cpsc-2376-final-project-seadogs_daley_estrada\SDL2_image.dll
+  C:\Users\estra\AppData\Local\GitHubDesktop\app-2.9.6\cpsc-2376-final-project-seadogs_daley_estrada\SDL2_ttf.dll
+  C:\Users\estra\AppData\Local\GitHubDesktop\app-2.9.6\cpsc-2376-final-project-seadogs_daley_estrada\zlib1.dll
           9 file(s) moved.

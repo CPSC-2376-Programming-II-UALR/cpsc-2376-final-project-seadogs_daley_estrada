@@ -10,12 +10,12 @@
 
 #include "GUI.h"
 #include "Timer.h"
-
 #include "engine.h"
 #include "Object.h"
 #include "Block.h"
 #include "Enemy.h"
 #include "Player.h"
+#include "HealthBar.cpp"
 
 using namespace std;
 
@@ -23,7 +23,8 @@ Engine::Engine(
 	std::unique_ptr<GUI>& gui,
 	const std::string& levelFile,
 	const std::string& playerAnimationFile,
-	const std::string& EnemyAnimationFile):gui(gui)
+	const std::string& EnemyAnimationFile,
+	const std::string& HealthBarAnimationFile):gui(gui)
 {
 	
 	ifstream fin;
@@ -64,6 +65,8 @@ Engine::Engine(
 		
 	}
 	objects.push_back(std::move(player1));
+	objects.push_back(std::make_unique<HealthBar>(HealthBarAnimationFile, Vector2D{ 0,0 }, gui));
+
 	
 	fin.close();
 }
@@ -76,7 +79,7 @@ Engine::Engine(const Engine& src) noexcept : gui(src.gui), gameOver{ src.gameOve
 {
 	for (auto& object : src.objects)
 	{
-		objects.push_back(object->copyMe());
+		objects.emplace_back(object->copyMe());
 	}
 }
 
@@ -85,31 +88,36 @@ Engine::Engine(Engine&& src) noexcept : gui(src.gui), gameOver{ src.gameOver }, 
 	for (auto& object : src.objects)
 	{
 		objects.push_back(std::move(object));
+		object = nullptr;
+
 	}
 }
 
 Engine& Engine::operator=(const Engine& src) noexcept
 {
 	objects.clear();
-	gameOver = src.gameOver;
-	gameWon = src.gameWon;
 	for (auto& object : src.objects)
 	{
-		objects.push_back(object->copyMe());
+		objects.emplace_back(object->copyMe());
 	}
+	gameOver = src.gameOver;
+	gameWon = src.gameWon;
 	return *this;
+
 }
 
 
 Engine& Engine::operator=(Engine&& src) noexcept
 {
 	objects.clear();
-	gameOver = src.gameOver;
-	gameWon = src.gameWon;
 	for (auto& object : src.objects)
 	{
 		objects.push_back(std::move(object));
+		object = nullptr;
 	}
+	src.objects.clear();
+	gameOver = src.gameOver;
+	gameWon = src.gameWon;
 	return *this;
 }
 

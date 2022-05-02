@@ -10,7 +10,7 @@ public:
 	Block() = delete;
 	Block(Vector2D columnRow, Object::Type name, const std::unique_ptr<GUI>& gui);
 	void update(Object::Command command,  std::vector<std::unique_ptr<Object>>& objects) override {}
-	std::unique_ptr<Object> copyMe() override;
+	Object* copyMe() override;
 private:
 	
 };

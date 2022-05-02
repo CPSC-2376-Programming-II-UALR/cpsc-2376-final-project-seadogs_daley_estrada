@@ -115,6 +115,14 @@ void GUI::initGUI(){
 
 void GUI::loadMedia(){
 
+	objectTextures[Object::Type::hpbar] = new Texture();
+	objectTextures[Object::Type::hpbar]->load(renderer, "./Assets/Images/HealthSpriteSheet.png");
+
+	hpClips.push_back(new SDL_Rect{ 0, 0, 300, 90 });//First Bar
+	hpClips.push_back(new SDL_Rect{ 0, 85, 300, 80 });//Second Bar
+	hpClips.push_back(new SDL_Rect{ 0, 168, 300, 90 }); //Third Bar
+	hpClips.push_back(new SDL_Rect{ 0, 260, 300, 90 }); //Last Bar
+
 	//Open Enemy Sprite Sheet Forward
 	objectTextures[Object::Type::enemy] = new Texture();
 	objectTextures[Object::Type::enemy]->load(renderer, "./Assets/Images/opponent_sheet.png");
@@ -258,6 +266,9 @@ void GUI::displayGameState(Engine* engine){
 			break;
 		case Object::Type::player:
 			objectTextures[Object::Type::player]->render(renderer, object->getPosition(), playerClips[((Player*)object.get())->getCurrentSprite()]);
+			break;
+		case Object::Type::hpbar:
+			objectTextures[Object::Type::hpbar]->render(renderer, object->getPosition(), hpClips[((HealthBar*)object.get())->getCurrentSprite()]);
 			break;
 		default:
 			objectTextures[object->getName()]->render(renderer, object->getPosition(), nullptr);

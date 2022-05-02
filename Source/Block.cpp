@@ -6,7 +6,7 @@ Block::Block(Vector2D columnRow, Object::Type name, const std::unique_ptr<GUI>& 
 
 }
 
-std::unique_ptr<Object> Block::copyMe()
+Object* Block::copyMe()
 {
-	return std::make_unique<Block>(*this);
+	return new Block(*this);
 }

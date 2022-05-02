@@ -19,7 +19,8 @@ public:
 		std::unique_ptr<GUI>& gui,
 		const std::string& levelFile,
 		const std::string& playerAnimationFile,
-		const std::string& EnemyAnimationFile);
+		const std::string& EnemyAnimationFile,
+		const std::string& HealthBarAnimationFile);
 
 	bool getGameOver() const;
 	bool getGameWon() const;

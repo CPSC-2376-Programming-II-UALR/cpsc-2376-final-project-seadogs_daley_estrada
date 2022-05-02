@@ -1,11 +1,3 @@
-/*
-* Author:	Sean Orme (based on the work of Dr. Keith Bush)
-*			UALR
-*
-* Date:		September 23, 2019
-*
-* File:		level.3.quest.cpp
-*/
 
 #include <cstdlib> 
 #include <ctime> 
@@ -33,7 +25,8 @@ int main(int argc, char* argv[]) {
 		gui,
 		"./Assets/data/background.txt",
 		"./Assets/data/animation.txt",
-		"./Assets/data/EnemyAnimations.txt") };
+		"./Assets/data/EnemyAnimations.txt",
+		"./Assets/data/HealthBar.txt")};
 
 	//test code for rule of 5.
 	/*
