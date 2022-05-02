@@ -75,6 +75,7 @@ void Player::update(Object::Command command,  std::vector<std::unique_ptr<Object
 	}
 	if (position.y > GUI::screenDimensions.y)
 	{
+		health = 0;
 		isDead = true;
 	}
 
