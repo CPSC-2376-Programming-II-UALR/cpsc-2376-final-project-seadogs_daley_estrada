@@ -1,4 +1,6 @@
 #include "timer.h"
+//Comment for push
+
 const int Timer::framesPerSecond{ 20 };
 const float Timer::frameDelay{ 1000.0f / framesPerSecond };
 Timer::Timer()
