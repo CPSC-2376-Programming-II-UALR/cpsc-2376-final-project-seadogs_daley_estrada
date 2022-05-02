@@ -15,7 +15,10 @@ Enemy::Enemy(std::string animationFile, Vector2D columnRow, const std::unique_pt
 
 void Enemy::update(Object::Command command,  std::vector<std::unique_ptr<Object>>& objects)
 {
-	
+	//Gravity and Physics now affect Enemies
+	applyGravity();
+	doPhysics(objects);
+
 	auto playerIter{ std::find_if(objects.begin(), objects.end(), [](auto& object)
 		{
 			return object->getName() == Object::Type::player;
@@ -32,8 +35,29 @@ void Enemy::update(Object::Command command,  std::vector<std::unique_ptr<Object>
 			state = State::stillLeft;
 		}
 	}
-
+	
+	
 	updateSprite();
+	switch (state) 
+	{
+	case State::stillLeft:	
+		//Created variable of timesJumped so enemies would not jump Everytime player jumps.
+			if ((*playerIter)->getPosition().y < position.y && timesJumped == 0)
+			{
+				position.y -= 35;
+				timesJumped++;
+			}
+			position.x -= walkSpeed - 8;
+		break;
+	case State::stillRight:
+		if ((*playerIter)->getPosition().y < position.y && timesJumped == 0)
+		{
+			position.y -= 35;
+			timesJumped++;
+		}
+		position.x += walkSpeed - 8;
+		break;
+	}
 }
 
 Object* Enemy::copyMe()

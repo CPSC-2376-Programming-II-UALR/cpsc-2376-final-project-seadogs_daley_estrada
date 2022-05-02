@@ -16,6 +16,7 @@ public:
 	Object* copyMe() override;
 
 private:
+	int timesJumped{ 0 };
 
 };
 #endif // !ENEMY_H
