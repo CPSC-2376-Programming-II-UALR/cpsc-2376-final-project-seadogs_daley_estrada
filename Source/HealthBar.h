@@ -1,7 +1,11 @@
 #ifndef HEALTHBAR_H
 #define HEALTHBAR_H
-#include "Object.h"
+
 #include "AnimatedObject.h"
+#include "Object.h"
+#include "Player.h"
+#include "GUI.h"
+
 
 class GUI;
 class Player;

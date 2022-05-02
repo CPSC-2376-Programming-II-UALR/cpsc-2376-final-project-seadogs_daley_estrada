@@ -118,7 +118,7 @@ void GUI::loadMedia(){
 	objectTextures[Object::Type::hpbar] = new Texture();
 	objectTextures[Object::Type::hpbar]->load(renderer, "./Assets/Images/HealthSpriteSheet.png");
 
-	hpClips.push_back(new SDL_Rect{ 79, 16, 30, 37 });//Still Left
+	hpClips.push_back(new SDL_Rect{ 0, 0, 300, 80 });//Still Left
 	hpClips.push_back(new SDL_Rect{ 43, 7, 14, 45 });//Still Right
 
 
@@ -343,6 +343,7 @@ Vector2D GUI::getDimensions(const Object * object) const
 	case Object::Type::water_top:
 	case Object::Type::water_wall:
 	case Object::Type::water_wall_corner:
+	//case Object::Type::hpbar:
 		return { 50,50 };
 		break;
 	default:

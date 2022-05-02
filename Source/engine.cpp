@@ -16,7 +16,7 @@
 #include "Block.h"
 #include "Enemy.h"
 #include "Player.h"
-#include "HealthBar.h"
+#include "HealthBar.cpp"
 using namespace std;
 
 Engine::Engine(
@@ -59,17 +59,13 @@ Engine::Engine(
 				break;
 
 			}
-			case Object::Type::hpbar: 
-			{
-				//objects.push_back(std::make_unique<HealthBar>(HealthBarAnimationFile, Vector2D{0,0}, gui));
-				break;
-			}
 			}
 
 		}
 		
 	}
 	objects.push_back(std::move(player1));
+	objects.push_back(std::make_unique<HealthBar>(HealthBarAnimationFile, Vector2D{ 0,0 }, gui));
 	
 	fin.close();
 }

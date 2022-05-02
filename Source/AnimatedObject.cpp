@@ -7,6 +7,7 @@
 using namespace std;
 const Vector2D AnimatedObject::gravity{ 0, 10 };
 const float AnimatedObject::deltaT{ 0.5f };
+
 AnimatedObject::AnimatedObject(std::string animationFile, Vector2D columnRow, Type name, const std::unique_ptr<GUI>& gui)
 	: Object(position, name, gui)
 {
