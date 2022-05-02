@@ -9,18 +9,7 @@
   C:\Users\estra\AppData\Local\GitHubDesktop\app-2.9.6\cpsc-2376-final-project-seadogs_daley_estrada\SDL2\lib\x86\SDL2_ttf.dll
   C:\Users\estra\AppData\Local\GitHubDesktop\app-2.9.6\cpsc-2376-final-project-seadogs_daley_estrada\SDL2\lib\x86\zlib1.dll
           9 file(s) copied.
-  AnimatedObject.cpp
-  Block.cpp
   Enemy.cpp
-  engine.cpp
-  GUI.cpp
-  level.6.quest.cpp
-  Object.cpp
-  Player.cpp
-  Texture.cpp
-  Timer.cpp
-  Generating Code...
-  LINK : C:\Users\estra\AppData\Local\GitHubDesktop\app-2.9.6\cpsc-2376-final-project-seadogs_daley_estrada\Game\Level.6.Quest.Solution.exe not found or not built by the last incremental link; performing full link
   Level.6.Quest.Solution.vcxproj -> C:\Users\estra\AppData\Local\GitHubDesktop\app-2.9.6\cpsc-2376-final-project-seadogs_daley_estrada\Game\Level.6.Quest.Solution.exe
   C:\Users\estra\AppData\Local\GitHubDesktop\app-2.9.6\cpsc-2376-final-project-seadogs_daley_estrada\libfreetype-6.dll
   C:\Users\estra\AppData\Local\GitHubDesktop\app-2.9.6\cpsc-2376-final-project-seadogs_daley_estrada\libjpeg-9.dll

@@ -26,38 +26,42 @@ void Enemy::update(Object::Command command,  std::vector<std::unique_ptr<Object>
 
 	if (playerIter != objects.end())
 	{
-		if (position < (*playerIter)->getPosition())
+		switch (position < (*playerIter)->getPosition())
 		{
-			state = State::stillRight;
-		}
-		else
-		{
-			state = State::stillLeft;
-		}
-	}
-	
-	
-	updateSprite();
-	switch (state) 
-	{
-	case State::stillLeft:	
+		case false:	
 		//Created variable of timesJumped so enemies would not jump Everytime player jumps.
+
 			if ((*playerIter)->getPosition().y < position.y && timesJumped == 0)
 			{
 				position.y -= 35;
 				timesJumped++;
+				//Sometimes enemies are lower than the player after jumping, Just give them another jump!
+				if ((*playerIter)->getPosition().y < position.y) 
+				{
+					timesJumped--;
+				}
 			}
+			state = State::walkLeft;
+			// -8 because they are fast, too fast
 			position.x -= walkSpeed - 8;
 		break;
-	case State::stillRight:
+		case true:
 		if ((*playerIter)->getPosition().y < position.y && timesJumped == 0)
 		{
 			position.y -= 35;
 			timesJumped++;
+			
+			if ((*playerIter)->getPosition().y < position.y)
+			{
+				timesJumped--;
+			}
 		}
+		state = State::walkLeft;
 		position.x += walkSpeed - 8;
 		break;
+		}
 	}
+	updateSprite();
 }
 
 Object* Enemy::copyMe()
