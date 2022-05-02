@@ -118,9 +118,11 @@ void GUI::loadMedia(){
 	objectTextures[Object::Type::hpbar] = new Texture();
 	objectTextures[Object::Type::hpbar]->load(renderer, "./Assets/Images/HealthSpriteSheet.png");
 
-	hpClips.push_back(new SDL_Rect{ 0, 0, 300, 80 });//Still Left
-	hpClips.push_back(new SDL_Rect{ 43, 7, 14, 45 });//Still Right
-
+	hpClips.push_back(new SDL_Rect{ 0, 0, 300, 90 });//First Bar
+	hpClips.push_back(new SDL_Rect{ 0, 85, 300, 80 });//Second Bar
+	hpClips.push_back(new SDL_Rect{ 0, 168, 300, 90 }); //Third Bar
+	hpClips.push_back(new SDL_Rect{ 0, 260, 300, 90 }); //Last Bar
+	
 
 	//Open Enemy Sprite Sheet Forward
 	objectTextures[Object::Type::enemy] = new Texture();
