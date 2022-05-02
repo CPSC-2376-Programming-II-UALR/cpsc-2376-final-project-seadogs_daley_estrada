@@ -1,15 +1,12 @@
 #include <fstream>
 #include <iostream>
-#include <algorithm>
 #include "AnimatedObject.h"
 #include "Block.h"
 #include "GUI.h"
 using namespace std;
-const Vector2D AnimatedObject::gravity{ 0, 10 };
+const Vector2D AnimatedObject::gravity{ 0.0f, 10.0f };
 const float AnimatedObject::deltaT{ 0.5f };
-
-AnimatedObject::AnimatedObject(std::string animationFile, Vector2D columnRow, Type name, const std::unique_ptr<GUI>& gui)
-	: Object(position, name, gui)
+AnimatedObject::AnimatedObject(std::string animationFile, Vector2D columnRow, Type name, const std::unique_ptr<GUI>& gui) : Object(position, name, gui)
 {
 	fstream fin;
 	fin.open(animationFile);
@@ -47,72 +44,88 @@ void AnimatedObject::doPhysics(const std::vector<std::unique_ptr<Object>>& objec
 {
 	applyGravity();
 
-	auto collidesWith{ std::find_if(objects.begin(), objects.end(), [this](const std::unique_ptr<Object>& object)
-		{
-			switch (object->getName())
-			{
-			case Object::Type::bridge_center:
-			case Object::Type::bridge_end:
-			case Object::Type::bridge_start:
-			case Object::Type::top_block:
-			case Object::Type::water_top:
-				return velocity.y > 0 && collision(object);
-			}
-			return false;
-		}) };
-	if (collidesWith != objects.end())
+	for (const auto& object : objects)
 	{
-		position.y = (*collidesWith)->getPosition().y - gui->getDimensions(this).y;
-		velocity.y = 0;
-		if (state == AnimatedObject::State::jumpLeft)
+		switch (object->getName()) //Only looking for Block Types
 		{
-			state = AnimatedObject::State::stillLeft;
-		}
-		else if (state == AnimatedObject::State::jumpRight)
-		{
-			state = AnimatedObject::State::stillRight;
+		case Object::Type::bridge_center:
+		case Object::Type::bridge_end:
+		case Object::Type::bridge_start:
+		case Object::Type::top_block:
+		case Object::Type::water_top:
+			if (collision(object))
+			{
+				position.y = object->getPosition().y - gui->getDimensions(this).y;
+				velocity.y = 0;
+				if (state == AnimatedObject::State::jumpLeft)
+				{
+					state = AnimatedObject::State::stillLeft;
+				}
+				else if (state == AnimatedObject::State::jumpRight)
+				{
+					state = AnimatedObject::State::stillRight;
+				}
+			}
 		}
 	}
-	
-
 }
-
 
 void AnimatedObject::applyGravity()
 {
-	position.y += (int)(deltaT * velocity.y);
-	velocity.y += (int)(deltaT * gravity.y);
+	position.y += deltaT * velocity.y;
+	velocity.y += deltaT * gravity.y;
 }
 
 bool AnimatedObject::collision(const std::unique_ptr<Object>& object, bool full)
 {
-	bool leftInColumn{ (position.x >= object->getPosition().x
-					&& position.x <= object->getPosition().x + object->getDimensions().x) };
-	bool rightInColumn{ (position.x + getDimensions().x >= object->getPosition().x
-		&& position.x + getDimensions().x <= object->getPosition().x + object->getDimensions().x) };
-	bool sameColumn{ leftInColumn || rightInColumn };
-	bool sameRow{ false };
-
-	if (sameColumn)
+	//If Player collides with an enemy, full needs to be set to true.
+	if (full == true)
 	{
-		bool objectTopInThis{ (object->getPosition().y > position.y
-				&& object->getPosition().y < position.y + getDimensions().y) };
+		bool leftInColumn{ (position.x >= object->getPosition().x
+				&& position.x <= object->getPosition().x + object->getDimensions().x) };
 
-		if (full)
-		{
-			bool topInRow{ (position.y >= object->getPosition().y
-				&& position.y < object->getPosition().y + object->getDimensions().y) };
-			bool bottomInRow{ (position.y + getDimensions().y > object->getPosition().y
+		bool rightInColumn{ (position.x + getDimensions().x >= object->getPosition().x
+			&& position.x + getDimensions().x <= object->getPosition().x + object->getDimensions().x) };
+
+		bool topInRow{ (position.y >= object->getPosition().y
+			&& position.y < object->getPosition().y + object->getDimensions().y) };
+
+		bool bottomInRow{ (position.y + getDimensions().y > object->getPosition().y
 			&& position.y + getDimensions().y <= object->getPosition().y + object->getDimensions().y) };
-			sameRow = topInRow || bottomInRow || objectTopInThis;
-		}
-		else
-		{
-			bool bottomInRow{ (position.y + getDimensions().y > object->getPosition().y
-				&& position.y + getDimensions().y <= object->getPosition().y + gravity.y) };//object->getDimensions().y) };
-			sameRow = bottomInRow || objectTopInThis;
-		}
+
+		bool objectTopInThis{ (object->getPosition().y > position.y
+			&& object->getPosition().y < position.y + getDimensions().y) };
+
+		bool sameColumn{ leftInColumn || rightInColumn };
+
+		bool sameRow{ topInRow || bottomInRow || objectTopInThis };
+
+		return sameRow && sameColumn;
 	}
 
-	return sameRow && sameColumn;
+	else
+	{
+		bool leftInColumn{ (position.x >= object->getPosition().x
+					&& position.x <= object->getPosition().x + object->getDimensions().x) };// determines if the Players left side is in between the Objects left and right side
+
+		bool rightInColumn{ (position.x + getDimensions().x >= object->getPosition().x
+			&& position.x + getDimensions().x <= object->getPosition().x + object->getDimensions().x) }; //determines if the Players right side is in between the Objects left and right side
+
+		/*bool topInRow{(position.y >= object->getPosition().y
+			&& position.y < object->getPosition().y + object->getDimensions().y) };*/ // checks if the Players top is in betweeen the Objects Top and bottom
+
+		bool bottomInRow{ (position.y + getDimensions().y > object->getPosition().y
+			&& position.y + getDimensions().y <= object->getPosition().y + gravity.y) }; // checks if the Players bottom is in between the Objects top and bottom.
+
+		bool objectTopInThis{ (object->getPosition().y > position.y
+			&& object->getPosition().y < position.y + getDimensions().y) }; // This varibale determines the Objects top in range of our players top and bottom
+
+		bool sameColumn{ leftInColumn || rightInColumn };
+
+		bool sameRow{ bottomInRow || objectTopInThis };
+
+		return sameRow && sameColumn;
+	}
+
+
 }

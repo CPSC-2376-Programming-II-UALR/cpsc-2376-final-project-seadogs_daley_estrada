@@ -1,31 +1,17 @@
 #include <fstream>
 #include <iostream>
-#include <algorithm>
 #include "Player.h"
 #include "GUI.h"
 #include "Block.h"
 
-
 using namespace std;
-Player::Player(std::string animationFile, Vector2D columnRow, const std::unique_ptr<GUI>& gui)
-	: AnimatedObject(animationFile, position, Object::Type::player,gui)
+Player::Player(std::string animationFile, Vector2D position, const std::unique_ptr<GUI>& gui) : AnimatedObject(animationFile, position, Object::Type::player, gui)
 {
 }
 
 
-bool lastBlockOnScreen(const std::vector<std::unique_ptr<Object>>& objects)
-{
-	int maxX{ 0 };
-	for (auto& object : objects)
-	{
-		if (object->getPosition().x + object->getDimensions().x > maxX && object->getName() != Object::Type::player)
-		{
-			maxX = object->getPosition().x + object->getDimensions().x;
-		}
-	}
-	return maxX <= GUI::screenDimensions.x;
-}
-void Player::update(Object::Command command,  std::vector<std::unique_ptr<Object>>& objects)
+
+void Player::update(Object::Command command, std::vector<std::unique_ptr<Object>>& objects)
 {
 	switch (command) {
 
@@ -43,60 +29,53 @@ void Player::update(Object::Command command,  std::vector<std::unique_ptr<Object
 	position.y -= gui->getDimensions(this).y - tempHeight;
 
 	//border detection.
-	//left side of screen.
 	if (position.x < 0)position.x = 0;
+	else if (position.x > gui->screenDimensions.x - gui->getDimensions(this).x)
+		position.x = gui->screenDimensions.x - gui->getDimensions(this).x;
 
 
-	//half screen.
-	else if (position.x > gui->screenDimensions.x / 2 && !lastBlockOnScreen(objects))
+	int previousObjectX = 0;
+	for (auto& object : objects)
 	{
-		for (auto& object : objects)
+		int x = object->getPosition().x + object->getDimensions().x;
+		if (x > previousObjectX && object->getName() != Object::Type::player)
 		{
-			if (object->getName() != Object::Type::player)
-			{
-				object->setPosition({ object->getPosition().x - (position.x - gui->screenDimensions.x / 2), object->getPosition().y });
-			}
+			previousObjectX = x;
 		}
-		position.x = gui->screenDimensions.x / 2;
-	}
-	//at the edge.
-	else if (position.x + getDimensions().x >= GUI::screenDimensions.x) position.x = GUI::screenDimensions.x - getDimensions().x;
-	
-	auto objectIter{ std::find_if(objects.begin(), objects.end(), [this](const std::unique_ptr<Object>& object)
-			{
-				return object->getName() == Object::Type::enemy && collision(object, true);
-			}) };
-	if (objectIter != objects.end())
-	{
-		health -= 1;
-		if (health == 0) {
+		if (object->getName() == Object::Type::enemy &&
+			collision(object, true))
+		{
 			isDead = true;
 		}
 	}
+
+	bool lastBlockOnScreen{ false };
+	if (previousObjectX <= GUI::screenDimensions.x)
+	{
+		lastBlockOnScreen = true;
+	}
+
+	if (position.x > GUI::screenDimensions.x / 2 && !lastBlockOnScreen)
+	{
+		int diff;
+		diff = position.x - GUI::screenDimensions.x / 2;
+		for (auto& object : objects)
+		{
+			Vector2D initialPos = object->getPosition();
+			Vector2D newPosition = { initialPos.x - diff, object->getPosition().y };
+			object->setPosition(newPosition);
+
+		}
+
+	}
+
 	if (position.y > GUI::screenDimensions.y)
 	{
-		health = 0;
 		isDead = true;
 	}
 
+
 }
-
-Object* Player::copyMe()
-{
-	return new Player(*this);
-}
-
-bool Player::getIsDead()
-{
-	return isDead;
-}
-
-int Player::getHealth()
-{
-	return health;
-}
-
-
 
 void Player::moveRight()
 {
@@ -108,11 +87,16 @@ void Player::moveRight()
 	case State::stillRight:
 		state = State::walkRight;
 		break;
-	case State::jumpRight:
 	case State::walkRight:
 		position.x += walkSpeed;
 		break;
-	
+	case State::jumpLeft:
+		state = State::jumpRight;
+		break;
+	case State::jumpRight:
+		position.x += walkSpeed;
+		break;
+
 	}
 }
 
@@ -126,8 +110,13 @@ void Player::moveLeft()
 	case AnimatedObject::State::stillLeft:
 		state = AnimatedObject::State::walkLeft;
 		break;
-	case AnimatedObject::State::jumpLeft:
 	case AnimatedObject::State::walkLeft:
+		position.x -= walkSpeed;
+		break;
+	case State::jumpLeft:
+		state = State::jumpRight;
+		break;
+	case State::jumpRight:
 		position.x -= walkSpeed;
 		break;
 	default:
@@ -156,7 +145,7 @@ void Player::moveJump()
 		{
 		case Player::State::stillRight:
 			state = State::jumpRight;
- 			velocity.y = -jumpStrength;
+			velocity.y = -jumpStrength;
 			break;
 		case Player::State::stillLeft:
 			state = State::jumpLeft;
@@ -164,7 +153,13 @@ void Player::moveJump()
 			break;
 		case Player::State::jumpRight:
 			break;
-		case Player::State::jumpLeft:
+		case Player::State::jumpLeft: 
+			break;
+		case::Player::State::crouchLeft:                                     //extra credit
+			position.y += getDimensions().y + gravity.y + 1;                 //extra credit
+			break;                                                           //extra credit
+		case::Player::State::crouchRight:                                    //extra credit
+			position.y += getDimensions().y + gravity.y + 1;                 //extra credit
 			break;
 		default:
 			break;
@@ -203,3 +198,11 @@ void Player::noAction()
 	}
 }
 
+bool Player::getIsDead()
+{
+	return isDead;
+}
+std::unique_ptr<Object> Player::copyMe()
+{
+	return std::make_unique<Player>(*this);     //return new Player(*this);
+}

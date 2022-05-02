@@ -1,70 +1,40 @@
-#include <algorithm>
-#include <vector>
-#include <memory>
-#include "Object.h"
 #include "Enemy.h"
 #include "GUI.h"
 #include "Player.h"
 
+//Enemy::Enemy(Vector2D position, std::string animationFile, const GUI& gui)
+//	:animation(animationFile), objectPart{ Object::Type::enemy, position }
+//{
+//	position.y = position.y + gui.getDimensions(Object::Type::block).y - gui.getDimensions(name).y;
+//}
 
-Enemy::Enemy(std::string animationFile, Vector2D columnRow, const std::unique_ptr<GUI>& gui)
-	: AnimatedObject(animationFile, position, Object::Type::enemy, gui)
+
+
+Enemy::Enemy(std::string animationFile, Vector2D position, const std::unique_ptr<GUI>& gui) : AnimatedObject(animationFile, position, Object::Type::enemy, gui)
 {
 
 }
 
-void Enemy::update(Object::Command command,  std::vector<std::unique_ptr<Object>>& objects)
+void Enemy::update(Object::Command command, std::vector<std::unique_ptr<Object>>& objects)
 {
-	//Gravity and Physics now affect Enemies
-	applyGravity();
-	doPhysics(objects);
-
-	auto playerIter{ std::find_if(objects.begin(), objects.end(), [](auto& object)
-		{
-			return object->getName() == Object::Type::player;
-		}) };
-
-	if (playerIter != objects.end())
+	for (const auto& object : objects)
 	{
-		switch (position < (*playerIter)->getPosition())
+		switch (object->getName())
 		{
-		case false:	
-		//Created variable of timesJumped so enemies would not jump Everytime player jumps.
-
-			if ((*playerIter)->getPosition().y < position.y && timesJumped == 0)
+		case Object::Type::player:
+			if (position < object->getPosition())
 			{
-				position.y -= 35;
-				timesJumped++;
-				//Sometimes enemies are lower than the player after jumping, Just give them another jump!
-				if ((*playerIter)->getPosition().y < position.y) 
-				{
-					timesJumped--;
-				}
+				state = State::stillRight;
 			}
-			state = State::walkLeft;
-			// -8 because they are fast, too fast
-			position.x -= walkSpeed - 8;
-		break;
-		case true:
-		if ((*playerIter)->getPosition().y < position.y && timesJumped == 0)
-		{
-			position.y -= 35;
-			timesJumped++;
-			
-			if ((*playerIter)->getPosition().y < position.y)
+			else
 			{
-				timesJumped--;
+				state = State::stillLeft;
 			}
-		}
-		state = State::walkLeft;
-		position.x += walkSpeed - 8;
-		break;
+			updateSprite();
 		}
 	}
-	updateSprite();
 }
-
-Object* Enemy::copyMe()
+std::unique_ptr<Object> Enemy::copyMe()
 {
-	return new Enemy(*this);
+	return std::make_unique<Enemy>(*this);
 }

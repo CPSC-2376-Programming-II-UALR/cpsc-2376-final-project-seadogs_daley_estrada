@@ -7,7 +7,6 @@
 #include <memory>
 
 
-
 #include "GUI.h"
 #include "Timer.h"
 
@@ -16,15 +15,14 @@
 #include "Block.h"
 #include "Enemy.h"
 #include "Player.h"
-#include "HealthBar.cpp"
+
 using namespace std;
 
 Engine::Engine(
 	std::unique_ptr<GUI>& gui,
 	const std::string& levelFile,
 	const std::string& playerAnimationFile,
-	const std::string& EnemyAnimationFile,
-	const std::string& HealthBarAnimationFile):gui(gui)
+	const std::string& EnemyAnimationFile):gui(gui)
 {
 	
 	ifstream fin;
@@ -65,10 +63,55 @@ Engine::Engine(
 		
 	}
 	objects.push_back(std::move(player1));
-	objects.push_back(std::make_unique<HealthBar>(HealthBarAnimationFile, Vector2D{ 0,0 }, gui));
 	
 	fin.close();
 }
+Engine::~Engine()
+{
+
+}
+
+Engine::Engine(const Engine& src) noexcept : gui(src.gui), gameOver{ src.gameOver }, gameWon{ src.gameWon }
+{
+	for (auto& object : src.objects)
+	{
+		objects.push_back(object->copyMe());
+	}
+}
+
+Engine::Engine(Engine&& src) noexcept : gui(src.gui), gameOver{ src.gameOver }, gameWon{ src.gameWon }
+{
+	for (auto& object : src.objects)
+	{
+		objects.push_back(std::move(object));
+	}
+}
+
+Engine& Engine::operator=(const Engine& src) noexcept
+{
+	objects.clear();
+	gameOver = src.gameOver;
+	gameWon = src.gameWon;
+	for (auto& object : src.objects)
+	{
+		objects.push_back(object->copyMe());
+	}
+	return *this;
+}
+
+
+Engine& Engine::operator=(Engine&& src) noexcept
+{
+	objects.clear();
+	gameOver = src.gameOver;
+	gameWon = src.gameWon;
+	for (auto& object : src.objects)
+	{
+		objects.push_back(std::move(object));
+	}
+	return *this;
+}
+
 bool Engine::getGameOver() const
 {
 	return gameOver;
@@ -104,56 +147,6 @@ std::vector<std::unique_ptr<Object>>& Engine::getObjects()
 	return objects;
 }
 
-Engine::~Engine()
-{
-}
-
-Engine::Engine(const Engine& src) noexcept:gui(src.gui), gameOver(src.gameOver), gameWon(src.gameWon)
-{
-	for (auto& object : src.objects)
-	{
-		objects.emplace_back(object->copyMe());
-	}
-}
-
-Engine::Engine(Engine&& src) noexcept:gui(src.gui), gameOver(src.gameOver), gameWon(src.gameWon)
-{
-	for (auto& object : src.objects)
-	{
-		objects.push_back(std::move(object));
-		object = nullptr;
-	}
-	src.objects.clear();
-}
-
-Engine& Engine::operator=(const Engine& src) noexcept
-{
-	objects.clear();
-
-	for (auto& object : src.objects)
-	{
-		objects.emplace_back(object->copyMe());
-	}
-	gameOver = src.gameOver;
-	gameWon = src.gameWon;
-	return *this;
-	
-}
-
-Engine& Engine::operator=(Engine&& src) noexcept
-{
-	objects.clear();
-
-	for (auto& object : src.objects)
-	{
-		objects.push_back(std::move(object));
-		object = nullptr;
-	}
-	src.objects.clear();
-	gameOver = src.gameOver;
-	gameWon = src.gameWon;
-	return *this;
-}
 
 
 
