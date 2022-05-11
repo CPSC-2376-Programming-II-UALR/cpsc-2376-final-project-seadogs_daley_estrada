@@ -9,9 +9,17 @@
 
 using namespace std;
 Player::Player(std::string animationFile, Vector2D columnRow, const std::unique_ptr<GUI>& gui)
-	: AnimatedObject(animationFile, position, Object::Type::player,gui)
+	: AnimatedObject(animationFile, position, Object::Type::player, gui)
 {
+	myGun = GunFactory::create(GunFactory::GunTypes::singleShot);
 }
+
+Player::Player(const Player& src) noexcept: AnimatedObject(src.animationFile, src.position, Object::Type::player, src.gui),health{src.health}, isDead{src.isDead}
+{
+	myGun = src.myGun->copyMe();
+}
+
+//write other constructors
 
 
 bool lastBlockOnScreen(const std::vector<std::unique_ptr<Object>>& objects)
@@ -36,6 +44,7 @@ void Player::update(Object::Command command,  std::vector<std::unique_ptr<Object
 	case Object::Command::up:moveUp(); break;
 	case Object::Command::jump:moveJump(); break;
 	case Object::Command::NA:noAction(); break;
+	case Object::Command::attack:myGun->fire(objects,this,gui); break;
 	}
 	doPhysics(objects);
 	//sprite update and height adjustment
@@ -61,7 +70,7 @@ void Player::update(Object::Command command,  std::vector<std::unique_ptr<Object
 		position.x = gui->screenDimensions.x / 2;
 	}
 	//at the edge.
-	else if (position.x + getDimensions().x >= GUI::screenDimensions.x) position.x = GUI::screenDimensions.x - getDimensions().x;
+	//else if (position.x + getDimensions().x >= GUI::screenDimensions.x) position.x = GUI::screenDimensions.x - getDimensions().x;
 	
 	auto objectIter{ std::find_if(objects.begin(), objects.end(), [this](const std::unique_ptr<Object>& object)
 			{

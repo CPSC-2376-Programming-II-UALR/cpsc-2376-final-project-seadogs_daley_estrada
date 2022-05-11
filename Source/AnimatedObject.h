@@ -15,7 +15,7 @@ public:
 	int getCurrentSprite() const;
 	
 	enum class State { stillLeft, stillRight, walkLeft, walkRight, crouchLeft, crouchRight, upLeft, upRight, jumpLeft, jumpRight };
-
+	State getCurrentState() const;
 
 
 protected:
@@ -23,6 +23,8 @@ protected:
 	void applyGravity();
 	bool collision(const std::unique_ptr<Object>& object, bool full = false);
 	void updateSprite();
+
+	const std::string animationFile;
 
 	const int walkSpeed{ 12 };
 	const int jumpStrength{ 35 };

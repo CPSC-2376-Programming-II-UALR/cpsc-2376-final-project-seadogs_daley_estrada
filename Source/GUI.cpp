@@ -49,6 +49,7 @@ Object::Command GUI::getCommand() {
 		//Animate
 		switch (event->key.keysym.sym)
 		{
+		case SDLK_SPACE: *command = Object::Command::attack; break;
 		case SDLK_UP: *command = Object::Command::up; break;
 		case SDLK_DOWN: *command = Object::Command::down; break;
 		case SDLK_LEFT: *command = Object::Command::left; break;
@@ -159,6 +160,9 @@ void GUI::loadMedia(){
 	enemyClips.push_back(new SDL_Rect{ 43, 7, 14, 45 });//Up Left
 	enemyClips.push_back(new SDL_Rect{ 223, 7, 14, 45 });//Up Right
 
+	//Open Bullet Sheet
+	objectTextures[Object::Type::bullet] = new Texture();
+	objectTextures[Object::Type::bullet]->load(renderer, "./Assets/Images/cs_w_bullet.png");
 	
 	//Open player Sprite Sheet Forward
 	objectTextures[Object::Type::player] = new Texture();
@@ -270,6 +274,9 @@ void GUI::displayGameState(Engine* engine){
 		case Object::Type::hpbar:
 			objectTextures[Object::Type::hpbar]->render(renderer, object->getPosition(), hpClips[((HealthBar*)object.get())->getCurrentSprite()]);
 			break;
+		case Object::Type::bullet:
+			objectTextures[Object::Type::bullet]->render(renderer, object->getPosition(), new SDL_Rect{ 96, 8, 8, 8 });
+			break;
 		default:
 			objectTextures[object->getName()]->render(renderer, object->getPosition(), nullptr);
 			break;
@@ -345,6 +352,9 @@ Vector2D GUI::getDimensions(const Object * object) const
 	case Object::Type::water_wall:
 	case Object::Type::water_wall_corner:
 		return { 50,50 };
+		break;
+	case Object::Type::bullet:
+		return { 8,8 };
 		break;
 	default:
 		return { 0,0 };

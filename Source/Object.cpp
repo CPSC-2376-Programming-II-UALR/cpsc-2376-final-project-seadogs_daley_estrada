@@ -33,3 +33,7 @@ Object::Type Object::getName() const
 {
 	return name;
 }
+bool Object::getDeleteFlag()
+{
+	return deleteFlag;
+}

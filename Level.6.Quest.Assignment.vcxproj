@@ -15,25 +15,33 @@
     <ClInclude Include="resource.h" />
     <ClInclude Include="Source\AnimatedObject.h" />
     <ClInclude Include="Source\Block.h" />
+    <ClInclude Include="Source\Bullet.h" />
     <ClInclude Include="Source\Enemy.h" />
     <ClInclude Include="Source\engine.h" />
     <ClInclude Include="Source\GUI.h" />
+    <ClInclude Include="Source\GunFactory.h" />
     <ClInclude Include="Source\Object.h" />
     <ClInclude Include="Source\Player.h" />
+    <ClInclude Include="Source\SingleShot.h" />
     <ClInclude Include="Source\Texture.h" />
     <ClInclude Include="Source\Timer.h" />
+    <ClInclude Include="Source\TripleShot.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Source\AnimatedObject.cpp" />
     <ClCompile Include="Source\Block.cpp" />
+    <ClCompile Include="Source\Bullet.cpp" />
     <ClCompile Include="Source\Enemy.cpp" />
     <ClCompile Include="Source\engine.cpp" />
     <ClCompile Include="Source\GUI.cpp" />
     <ClCompile Include="Source\Group.Assignment.2.cpp" />
+    <ClCompile Include="Source\GunFactory.cpp" />
     <ClCompile Include="Source\Object.cpp" />
     <ClCompile Include="Source\Player.cpp" />
+    <ClCompile Include="Source\SingleShot.cpp" />
     <ClCompile Include="Source\Texture.cpp" />
     <ClCompile Include="Source\Timer.cpp" />
+    <ClCompile Include="Source\TripleShot.cpp" />
   </ItemGroup>
   <ItemGroup>
     <Text Include="Assets\data\animation.txt" />
@@ -43,6 +51,7 @@
   </ItemGroup>
   <ItemGroup>
     <Image Include="Assets\images\block.png" />
+    <Image Include="Assets\images\cs_w_bullet.png" />
     <Image Include="Assets\images\player_sheet.png" />
   </ItemGroup>
   <ItemGroup>
@@ -58,7 +67,7 @@
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
     <ConfigurationType>Application</ConfigurationType>
     <UseDebugLibraries>true</UseDebugLibraries>
-    <PlatformToolset>v142</PlatformToolset>
+    <PlatformToolset>v143</PlatformToolset>
     <CharacterSet>MultiByte</CharacterSet>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">

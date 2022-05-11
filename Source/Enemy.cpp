@@ -62,6 +62,15 @@ void Enemy::update(Object::Command command,  std::vector<std::unique_ptr<Object>
 		}
 	}
 	updateSprite();
+
+	auto objectIter{ std::find_if(objects.begin(), objects.end(), [this](const std::unique_ptr<Object>& object)
+			{
+				return (object->getName() == Object::Type::bullet) && collision(object, true);
+			}) };
+	if (objectIter != objects.end())
+	{
+		deleteFlag = true;
+	}
 }
 
 Object* Enemy::copyMe()

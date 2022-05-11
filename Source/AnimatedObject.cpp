@@ -8,7 +8,7 @@
 using namespace std;
 const Vector2D AnimatedObject::gravity{ 0.0f, 10.0f };
 const float AnimatedObject::deltaT{ 0.5f };
-AnimatedObject::AnimatedObject(std::string animationFile, Vector2D columnRow, Type name, const std::unique_ptr<GUI>& gui) : Object(position, name, gui)
+AnimatedObject::AnimatedObject(std::string animationFile, Vector2D columnRow, Type name, const std::unique_ptr<GUI>& gui) : Object(position, name, gui), animationFile{animationFile}
 {
 	fstream fin;
 	fin.open(animationFile);
@@ -34,6 +34,10 @@ AnimatedObject::AnimatedObject(std::string animationFile, Vector2D columnRow, Ty
 int AnimatedObject::getCurrentSprite() const
 {
 	return currentSprite;
+}
+AnimatedObject::State AnimatedObject::getCurrentState() const
+{
+	return state;
 }
 void AnimatedObject::updateSprite()
 {

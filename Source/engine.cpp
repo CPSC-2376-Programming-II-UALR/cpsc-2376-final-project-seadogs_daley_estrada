@@ -146,6 +146,14 @@ void Engine::changeGameState(Object::Command command)
 				gameWon = object->getPosition().y < GUI::screenDimensions.y && !((Player*)object.get())->getIsDead();
 			}
 		}
+		auto objectIter{ std::find_if(objects.begin(), objects.end(), [this](std::unique_ptr<Object>& object)
+							{
+								return (object->getDeleteFlag() == true);
+							}) };
+		if (objectIter != objects.end())
+		{
+			objects.erase(objectIter);
+		}
 	}
 	//cout << gameOver << " ";
 

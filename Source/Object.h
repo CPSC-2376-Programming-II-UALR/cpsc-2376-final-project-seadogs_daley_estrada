@@ -35,9 +35,10 @@ public:
 		water_top, 
 		water_wall, 
 		water_wall_corner,
+		bullet,
 		player=100,
 		enemy=200,
-		hpbar = 300
+		hpbar = 300,
 	};
 
 	Object() = delete;
@@ -48,12 +49,14 @@ public:
 	void setPosition(Vector2D newPosition);
 	Vector2D getDimensions() const;
 	Type getName() const;
+	bool getDeleteFlag();
 
 	virtual void update(Object::Command command, std::vector<std::unique_ptr<Object>> & objects) = 0;
 	virtual Object* copyMe() = 0;
 
 
 protected:
+	bool deleteFlag{ false };
 	const Type name{ Type::none };
 	Vector2D position{ 0,0 };
 	const std::unique_ptr<GUI>& gui;

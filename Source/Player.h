@@ -4,6 +4,7 @@
 #include <vector>
 
 #include "AnimatedObject.h"
+#include "GunFactory.h"
 //Comment for push
 
 class GUI;
@@ -13,6 +14,8 @@ class Player : public AnimatedObject
 public:
     Player() = delete;
     Player(std::string animationFile, Vector2D columnRow, const std::unique_ptr<GUI>& gui);
+    Player(const Player& src) noexcept;
+    //write other constructors
 
 
     void update(Object::Command command, std::vector<std::unique_ptr<Object>>& objects) override;
@@ -29,6 +32,7 @@ private:
     void moveJump();
     void noAction();
     bool isDead{ false };
+    std::unique_ptr<GunFactory> myGun;
 
 
 };
