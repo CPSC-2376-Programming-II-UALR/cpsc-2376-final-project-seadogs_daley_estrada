@@ -16,8 +16,52 @@ Player::Player(std::string animationFile, Vector2D columnRow, const std::unique_
 
 Player::Player(const Player& src) noexcept: AnimatedObject(src.animationFile, src.position, Object::Type::player, src.gui),health{src.health}, isDead{src.isDead}
 {
+	velocity = src.velocity;
+	currentSprite = src.currentSprite;
+	currentAnimation = src.currentAnimation;
+	state = src.state;
+	sprites = src.sprites;
 	myGun = src.myGun->copyMe();
 }
+
+Player::Player(Player&& src) noexcept
+	: AnimatedObject(src.animationFile, src.position, Object::Type::player, src.gui), isDead{ src.isDead }, health{ src.health }
+{
+	velocity = src.velocity;
+	currentSprite = src.currentSprite;
+	currentAnimation = src.currentAnimation;
+	state = src.state;
+	sprites = src.sprites;
+	myGun = std::move(src.myGun);
+}
+
+Player& Player::operator=(const Player& src) noexcept
+{
+	isDead = src.isDead;
+	health = src.health;
+	velocity = src.velocity;
+	currentSprite = src.currentSprite;
+	currentAnimation = src.currentAnimation;
+	state = src.state;
+	sprites = src.sprites;
+	myGun = nullptr;
+	myGun = src.myGun->copyMe();
+	return *this;
+}
+
+Player& Player::operator=(Player&& src) noexcept
+{
+	isDead = src.isDead;
+	health = src.health;
+	velocity = src.velocity;
+	currentSprite = src.currentSprite;
+	currentAnimation = src.currentAnimation;
+	state = src.state;
+	sprites = src.sprites;
+	myGun = std::move(src.myGun);
+	return *this;
+}
+
 
 //write other constructors
 

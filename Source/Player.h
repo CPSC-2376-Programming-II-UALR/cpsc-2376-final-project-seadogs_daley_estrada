@@ -15,6 +15,9 @@ public:
     Player() = delete;
     Player(std::string animationFile, Vector2D columnRow, const std::unique_ptr<GUI>& gui);
     Player(const Player& src) noexcept;
+    Player(Player&& src) noexcept;
+    Player& operator=(const Player& src) noexcept;
+    Player& operator=(Player&& src) noexcept;
     //write other constructors
 
 

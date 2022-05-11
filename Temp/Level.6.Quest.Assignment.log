@@ -9,7 +9,13 @@
   C:\Users\Ryan Daley\Documents\GitHub\cpsc-2376-final-project-seadogs_daley_estrada\SDL2\lib\x86\SDL2_ttf.dll
   C:\Users\Ryan Daley\Documents\GitHub\cpsc-2376-final-project-seadogs_daley_estrada\SDL2\lib\x86\zlib1.dll
           9 file(s) copied.
+  Enemy.cpp
+  GUI.cpp
+  Group.Assignment.2.cpp
+  Object.cpp
   Player.cpp
+  engine.cpp
+  Generating Code...
   Level.6.Quest.Assignment.vcxproj -> C:\Users\Ryan Daley\Documents\GitHub\cpsc-2376-final-project-seadogs_daley_estrada\Game\Level.6.Quest.Assignment.exe
   C:\Users\Ryan Daley\Documents\GitHub\cpsc-2376-final-project-seadogs_daley_estrada\libfreetype-6.dll
   C:\Users\Ryan Daley\Documents\GitHub\cpsc-2376-final-project-seadogs_daley_estrada\libjpeg-9.dll
