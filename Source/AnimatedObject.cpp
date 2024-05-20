@@ -118,13 +118,13 @@ bool AnimatedObject::collision(const std::unique_ptr<Object>& object, bool full)
 			&& position.x + getDimensions().x <= object->getPosition().x + object->getDimensions().x) }; //determines if the Players right side is in between the Objects left and right side
 
 		/*bool topInRow{(position.y >= object->getPosition().y
-			&& position.y < object->getPosition().y + object->getDimensions().y) };*/ // checks if the Players top is in betweeen the Objects Top and bottom
+			&& position.y < object->getPosition().y + object->getDimensions().y) };*/ // checks if the Players top is in between the Objects Top and bottom
 
 		bool bottomInRow{ (position.y + getDimensions().y > object->getPosition().y
 			&& position.y + getDimensions().y <= object->getPosition().y + gravity.y) }; // checks if the Players bottom is in between the Objects top and bottom.
 
 		bool objectTopInThis{ (object->getPosition().y > position.y
-			&& object->getPosition().y < position.y + getDimensions().y) }; // This varibale determines the Objects top in range of our players top and bottom
+			&& object->getPosition().y < position.y + getDimensions().y) }; // This variable determines the Objects top in range of our players top and bottom
 
 		bool sameColumn{ leftInColumn || rightInColumn };
 
